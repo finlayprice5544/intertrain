@@ -1,0 +1,29 @@
+{
+  "input": "https://intertrain.online/",
+  "canonicalUrl": "https://intertrain.online/",
+  "canonicalHost": "intertrain.online",
+  "origin": "https://intertrain.online",
+  "entry": "index.html",
+  "strategy": "static",
+  "spaFallback": false,
+  "redirects": [
+    {
+      "note": "host-variant",
+      "from": "https://www.intertrain.online/",
+      "to": "https://intertrain.online/",
+      "status": 301
+    }
+  ],
+  "counts": {
+    "pages": 4,
+    "assets": 77,
+    "files": 47
+  },
+  "clonedAt": "2026-10-16T08:47:25.028Z",
+  "capture": {
+    "recordedAt": "2026-10-16T08:47:40.955Z",
+    "pages": 4,
+    "entries": 28,
+    "apiEntries": 3
+  }
+}

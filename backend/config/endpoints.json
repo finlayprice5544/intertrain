@@ -1,0 +1,16 @@
+{
+  "_note": "Endpoint manifest — generated from captured recordings. One entry per API endpoint the cloned frontend calls. The route-implementer agent creates one src/routes/<name>.route.ts per entry; smoke.mjs tests each.",
+  "source": "",
+  "endpoints": [
+    {
+      "name": "coins",
+      "method": "GET",
+      "path": "/api/coins",
+      "query": "",
+      "responseEnvelope": "{ coins: Coin[] }",
+      "sampleBodyFile": "",
+      "dataSource": "seed+dexscreener",
+      "notes": "example — replace with real detected endpoints"
+    }
+  ]
+}

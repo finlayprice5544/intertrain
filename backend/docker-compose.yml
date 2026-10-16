@@ -1,0 +1,31 @@
+# Spin up ClickHouse locally so the project "just works":
+#   docker compose up -d clickhouse
+# HTTP on :8123, native on :9000. Data persists in the named volume.
+services:
+  clickhouse:
+    image: clickhouse/clickhouse-server:24.8
+    container_name: gen-clickhouse
+    ports:
+      - "8123:8123"
+      - "9000:9000"
+    environment:
+      CLICKHOUSE_DB: app
+      CLICKHOUSE_USER: default
+      CLICKHOUSE_PASSWORD: ""
+      CLICKHOUSE_DEFAULT_ACCESS_MANAGEMENT: "1"
+    ulimits:
+      nofile:
+        soft: 262144
+        hard: 262144
+    volumes:
+      - clickhouse-data:/var/lib/clickhouse
+      # auto-run migrations on first start:
+      - ./migrations/clickhouse:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "localhost:8123/ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+volumes:
+  clickhouse-data:

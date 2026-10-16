@@ -1,0 +1,17 @@
+{
+  "siteName": "Intertrain",
+  "ticker": "TICKER",
+  "contractAddress": "",
+  "socials": {
+    "twitter": "https://x.com/yourhandle",
+    "github": "https://github.com/youruser/yourrepo",
+    "discord": "https://discord.gg/yourinvite",
+    "telegram": "https://t.me/yourchannel",
+    "website": "https://yoursite.example"
+  },
+  "theme": {
+    "accent": "#6c5ce7",
+    "background": "#0e0e10"
+  },
+  "_note": "Edit this file OR set the matching env vars (env wins). `cargo run --bin rebrand` pushes these values into the cloned frontend in ../frontend/."
+}

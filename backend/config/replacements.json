@@ -1,0 +1,11 @@
+{
+  "_note": "Map each ORIGINAL value found in the cloned frontend to a branding key. `cargo run --bin rebrand` replaces the left side with the configured value of the right side across ../frontend/. The generator fills this in from what it detected on the source site.",
+  "_examples": {
+    "ORIGINAL_CONTRACT_ADDRESS_HERE": "contractAddress",
+    "https://x.com/original_handle": "socials.twitter",
+    "https://github.com/original/repo": "socials.github",
+    "https://discord.gg/originalinvite": "socials.discord",
+    "https://t.me/originalchannel": "socials.telegram"
+  },
+  "map": {}
+}

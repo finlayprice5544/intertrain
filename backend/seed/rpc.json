@@ -1,0 +1,136 @@
+{
+  "chain_info": {
+    "address_format": {
+      "accepted_prefixes": [
+        "wsk",
+        "mna"
+      ],
+      "canonical_output": true,
+      "canonical_prefix": "wsk",
+      "codec_version": 1,
+      "state_impact": "none"
+    },
+    "chain_id": "intertrain-1",
+    "finalized_hash": "d530afaec34b2c0ef398c7fe042fb3ff49a8f5e69c1e5f1b634667e3bdff8463",
+    "finalized_height": 2045372,
+    "genesis_hash": "ce70bfb5725c86585a9955acc9ea0e711c7fe344b76cbcdd4256456bbdc6537f",
+    "latest_hash": "cb0e42642c85917fe68bad934767ed3e55a786f7f5b6c549963c3fd54209068b",
+    "latest_height": 2045374,
+    "native_asset": {
+      "decimals": 6,
+      "name": "WorldStreet Kash",
+      "symbol": "WSK"
+    }
+  },
+  "bridge_status": {
+    "arbitrum_wsk": {
+      "asset_id": "arbitrum:USDC:mainnet:0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+      "bridge_contract": "0x0729F81ACc0948089B0BAcc0685c461F8F54F23B",
+      "chain_id": 42161,
+      "confirmations": 20,
+      "connected": true,
+      "deposit_topic": "0x8399ea2998de3fe00f8878f42216a68a8956c3687b5d9d0412c4c1a6d3b05ccf",
+      "enabled": false,
+      "network": "Arbitrum One",
+      "paused": true,
+      "rate": "1 USDC = 1 WSK",
+      "symbol": "WSK",
+      "token_contract": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831"
+    },
+    "ethereum": {
+      "bridge_contract": "",
+      "confirmations": 12,
+      "connected": false,
+      "deposit_topic_configured": false,
+      "enabled": false,
+      "network": "mainnet",
+      "reason": "set WSC_ETHEREUM_RPC_URL, WSC_ETHEREUM_BRIDGE_CONTRACT, and WSC_ETHEREUM_DEPOSIT_TOPIC to enable the testnet bridge",
+      "rpc_configured": true
+    },
+    "solana": {
+      "bridge_program": "",
+      "commitment": "finalized",
+      "confirmations": 32,
+      "connected": false,
+      "enabled": false,
+      "mode": "disabled",
+      "network": "devnet",
+      "reason": "WSOL is disabled until SOL liquidity is funded; set WSC_SOLANA_MODE=custody and configure the vault to reactivate it",
+      "rpc_configured": false,
+      "spl_usdc_enabled": false,
+      "spl_usdc_mint": "",
+      "spl_usdc_vault_token_account": "",
+      "vault_address": "",
+      "wsol_mint": ""
+    },
+    "solana_usdc": {
+      "asset_id": "solana:USDC:devnet:mint-placeholder",
+      "decimals": 6,
+      "enabled": false,
+      "symbol": "USDC"
+    },
+    "usdc": {
+      "bridge_contract": "0x981fA35883e60Fbe229D449334B3507997af84E1",
+      "confirmations": 12,
+      "deposit_topic_configured": true,
+      "enabled": true,
+      "network": "mainnet",
+      "token_configured": true,
+      "token_contract": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
+    },
+    "usdc_asset": {
+      "asset_id": "ethereum:USDC:mainnet:0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+      "decimals": 6,
+      "symbol": "USDC"
+    },
+    "weth": {
+      "asset_id": "ethereum:WETH:mainnet:bridge-placeholder",
+      "decimals": 18,
+      "symbol": "WETH"
+    },
+    "wsol": {
+      "asset_id": "solana:WSOL:devnet:bridge-placeholder",
+      "decimals": 9,
+      "symbol": "WSOL"
+    }
+  },
+  "mna_reserve_status": {
+    "backed_fraction": 1,
+    "collateralized": true,
+    "current_reserves_sol_usd": "0",
+    "current_reserves_total_usd": "3600000",
+    "current_reserves_usdc": "3600000",
+    "paused": false,
+    "rate": "1 USDC = 1 WSK",
+    "redeemable_mna": "1400000",
+    "required_reserve_usd": "1400000",
+    "reserve_backed_mna_minted": "1400000",
+    "surplus_usd": "2200000",
+    "total_mna_supply": "1400000",
+    "total_redeemed_mna": "12000000",
+    "total_released_sol_lamports": "0",
+    "total_released_usdc": "0",
+    "total_verified_deposits_usdc": "3600000",
+    "total_verified_sol_lamports": "0"
+  },
+  "validator_set": {
+    "validators": [
+      {
+        "name": "validator-1",
+        "public_key": "ade71b0a1b49ab8a6557ee8b26cc186392d58d8a6885bdc1b95fdb0f375476cf"
+      },
+      {
+        "name": "validator-2",
+        "public_key": "6b799dfafdf1cffe6afe91c9722dc68a1af23c4aed0a30ac970d632b6db40829"
+      },
+      {
+        "name": "validator-3",
+        "public_key": "e49c0ee690566f00ad30320a899d31ad7e12953688fea4d4ececd963bf52b865"
+      },
+      {
+        "name": "validator-4",
+        "public_key": "b7e56bfd29c813065f8c1e36d8e3b859300dcfd89899b37087d63b7e7499a6ac"
+      }
+    ]
+  }
+}

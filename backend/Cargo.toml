@@ -1,0 +1,40 @@
+[package]
+name = "generated-site"
+version = "0.1.0"
+edition = "2021"
+description = "Generated site backend — Axum + ClickHouse + embedded RocksDB. Fill the TODOs."
+
+[[bin]]
+name = "generated-site"
+path = "src/main.rs"
+
+[[bin]]
+name = "rebrand"
+path = "src/bin/rebrand.rs"
+
+[[bin]]
+name = "smoke"
+path = "src/bin/smoke.rs"
+
+[dependencies]
+tokio = { version = "1", features = ["full"] }
+axum = "0.8"
+tower = "0.5"
+tower-http = { version = "0.6", features = ["trace", "cors"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+# native TLS = SChannel on Windows / Secure Transport on macOS / OpenSSL on Linux.
+# Avoids the aws-lc-sys C build that breaks on preview MSVC toolchains.
+reqwest = { version = "0.12", features = ["json"] }
+clickhouse = { version = "0.13", default-features = false, features = ["native-tls"] }
+rocksdb = "0.22"
+dotenvy = "0.15"
+anyhow = "1"
+thiserror = "1"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+inventory = "0.3"
+mime_guess = "2"
+
+[profile.dev]
+opt-level = 1       # rocksdb is painfully slow unoptimized
