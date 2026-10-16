@@ -29,7 +29,7 @@ fn main() {
         .unwrap_or(Value::Null);
 
     // resolved branding values keyed by the dotted keys used in replacements.json
-    let resolved = serde_json::json!({
+    let mut resolved = serde_json::json!({
         "siteName": env_or_file("SITE_NAME", &file, &["siteName"]),
         "ticker": env_or_file("TOKEN_TICKER", &file, &["ticker"]),
         "contractAddress": env_or_file("CONTRACT_ADDRESS", &file, &["contractAddress"]),
@@ -41,6 +41,31 @@ fn main() {
             "website": env_or_file("WEBSITE_URL", &file, &["socials","website"]),
         }
     });
+
+    // Merge wallet-specific branding keys from branding.json.wallet.
+    // These are flat keys (brandName, nativeTokenSymbol, walletDomain, etc.)
+    // that replacements.json references directly (not dotted).
+    if let Some(wallet) = file.get("wallet").and_then(|w| w.as_object()) {
+        if let Some(obj) = resolved.as_object_mut() {
+            for (k, v) in wallet {
+                // Environment variable override: WALLET_<UPPER_SNAKE_KEY>
+                let env_key = format!(
+                    "WALLET_{}",
+                    k.chars()
+                        .map(|c| if c.is_ascii_uppercase() { format!("_{c}") } else { c.to_ascii_uppercase().to_string() })
+                        .collect::<String>()
+                );
+                if let Ok(env_val) = std::env::var(&env_key) {
+                    let env_val = env_val.trim().to_string();
+                    if !env_val.is_empty() {
+                        obj.insert(k.clone(), Value::String(env_val));
+                        continue;
+                    }
+                }
+                obj.insert(k.clone(), v.clone());
+            }
+        }
+    }
 
     let repl: Value = std::fs::read_to_string("config/replacements.json")
         .ok()

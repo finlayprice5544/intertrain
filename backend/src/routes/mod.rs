@@ -25,3 +25,5 @@ pub mod meta;
 pub mod indexer_health;
 pub mod indexer_tokens;
 pub mod rpc;
+pub mod healthz;
+pub mod metrics;

@@ -1,0 +1,19 @@
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "status": "confirmed",
+    "hash": "a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2",
+    "height": 2045380,
+    "transaction": {
+      "version": 1,
+      "chain_id": "intertrain-1",
+      "nonce": 42,
+      "from": "wsk1qyyeyzxrpy47slcqllq3tzldzkp42rw9s5rg99zu",
+      "to": "wsk1qyyg0epp9t2d3rhs77yte3s3pfd7acf90vf8s0kt",
+      "amount": "10000000",
+      "fee": "1",
+      "memo": ""
+    }
+  }
+}

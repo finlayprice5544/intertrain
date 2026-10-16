@@ -1,0 +1,7 @@
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "session_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJFZERTQSJ9.eyJhZGRyZXNzIjoid3NrMXF5eWV5enhycHk0N3NsY3FsbHEzdHpsZHprcDQycnc5czVyZzk5enUiLCJkb21haW4iOiJpbnRlcnRyYWluLm9ubGluZSIsImV4cCI6MTcyOTIwMDAwMH0.placeholder_signature"
+  }
+}

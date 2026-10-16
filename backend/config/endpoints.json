@@ -1,16 +1,194 @@
 {
-  "_note": "Endpoint manifest — generated from captured recordings. One entry per API endpoint the cloned frontend calls. The route-implementer agent creates one src/routes/<name>.route.ts per entry; smoke.mjs tests each.",
-  "source": "",
+  "_note": "Endpoint manifest — generated from captured recordings + wallet JS analysis. One entry per API endpoint the cloned frontend calls. The route-implementer agent creates one src/routes/<name>.route.ts per entry; smoke.mjs tests each.",
+  "source": "intertrain.online + wallets.intertrain.online",
   "endpoints": [
     {
-      "name": "coins",
-      "method": "GET",
-      "path": "/api/coins",
+      "name": "rpc_devnet",
+      "method": "POST",
+      "path": "/api/rpc",
       "query": "",
-      "responseEnvelope": "{ coins: Coin[] }",
+      "responseEnvelope": "{ jsonrpc: \"2.0\", id: number, result: any }",
       "sampleBodyFile": "",
-      "dataSource": "seed+dexscreener",
-      "notes": "example — replace with real detected endpoints"
+      "dataSource": "seed+rpc_dispatch",
+      "notes": "Devnet JSON-RPC multiplexer. Dispatches by method field to the handlers below."
+    },
+    {
+      "name": "rpc_mainnet",
+      "method": "POST",
+      "path": "/api-mainnet/rpc",
+      "query": "",
+      "responseEnvelope": "{ jsonrpc: \"2.0\", id: number, result: any }",
+      "sampleBodyFile": "",
+      "dataSource": "seed+rpc_dispatch",
+      "notes": "Mainnet JSON-RPC multiplexer. Same dispatch logic as devnet."
+    },
+    {
+      "name": "indexer_health",
+      "method": "GET",
+      "path": "/api-indexer/health",
+      "query": "",
+      "responseEnvelope": "{ indexed_height: number, status: string }",
+      "sampleBodyFile": "seed/indexer_health.json",
+      "dataSource": "seed",
+      "notes": "Indexer health check. Called from /tokens/ page."
+    },
+    {
+      "name": "indexer_tokens",
+      "method": "GET",
+      "path": "/api-indexer/tokens",
+      "query": "sort=holders&limit=100",
+      "responseEnvelope": "{ height: number, tokens: Token[] }",
+      "sampleBodyFile": "seed/indexer_tokens.json",
+      "dataSource": "seed",
+      "notes": "Token listing for /tokens/ page."
+    },
+    {
+      "name": "healthz",
+      "method": "GET",
+      "path": "/healthz",
+      "query": "",
+      "responseEnvelope": "{ status: \"ok\" }",
+      "sampleBodyFile": "",
+      "dataSource": "static",
+      "notes": "Server health check. Referenced in 4702 constants as rpc-worldstreet.intertrain.online/healthz."
+    },
+    {
+      "name": "metrics",
+      "method": "GET",
+      "path": "/metrics",
+      "query": "",
+      "responseEnvelope": "text/plain prometheus format",
+      "sampleBodyFile": "",
+      "dataSource": "static",
+      "notes": "Prometheus metrics endpoint. Referenced in 4702 constants."
+    }
+  ],
+  "rpc_methods": [
+    {
+      "method": "chain_info",
+      "params": {},
+      "sampleBodyFile": "seed/rpc.chain_info.json",
+      "notes": "Chain metadata: chain_id, heights, native asset info. Polled every 10s by the landing page and wallet."
+    },
+    {
+      "method": "validator_set",
+      "params": {},
+      "sampleBodyFile": "seed/rpc.validator_set.json",
+      "notes": "Current validator set. Polled alongside chain_info on the landing page."
+    },
+    {
+      "method": "account_get",
+      "params": { "address": "wsk1..." },
+      "sampleBodyFile": "seed/rpc.account_get.json",
+      "notes": "Account balance, nonce, and per-asset balances. Called before every transaction/token op to get nonce."
+    },
+    {
+      "method": "asset_list",
+      "params": {},
+      "sampleBodyFile": "seed/rpc.asset_list.json",
+      "notes": "All bridged/wrapped assets with their enabled status. Drives the wallet's asset list."
+    },
+    {
+      "method": "bridge_status",
+      "params": {},
+      "sampleBodyFile": "seed/rpc.bridge_status.json",
+      "notes": "Per-lane bridge status (Ethereum, Solana, Arbitrum, USDC). Already in rpc.json seed."
+    },
+    {
+      "method": "mna_reserve_status",
+      "params": {},
+      "sampleBodyFile": "seed/rpc.mna_reserve_status.json",
+      "notes": "MNA reserve collateralization, rates, totals. Already in rpc.json seed."
+    },
+    {
+      "method": "transaction_broadcast",
+      "params": { "transaction": {} },
+      "sampleBodyFile": "seed/rpc.transaction_broadcast.json",
+      "notes": "Broadcast a signed native transfer. Returns {hash}."
+    },
+    {
+      "method": "transaction_status",
+      "params": { "hash": "..." },
+      "sampleBodyFile": "seed/rpc.transaction_status.json",
+      "notes": "Poll transaction confirmation status. Returns status: confirmed|pending|not_found."
+    },
+    {
+      "method": "token_list",
+      "params": {},
+      "sampleBodyFile": "seed/rpc.token_list.json",
+      "notes": "List all native tokens with metadata, supply, holder counts."
+    },
+    {
+      "method": "token_evm_address",
+      "params": { "hash": "..." },
+      "sampleBodyFile": "seed/rpc.token_evm_address.json",
+      "notes": "Derive the EVM address for a native token by its token_id hash. For MetaMask import."
+    },
+    {
+      "method": "token_operation_prepare",
+      "params": { "unsigned": {} },
+      "sampleBodyFile": "seed/rpc.token_operation_prepare.json",
+      "notes": "Prepare a token operation (Create/Transfer/Mint/Burn/Freeze). Returns signing_bytes."
+    },
+    {
+      "method": "token_operation_broadcast",
+      "params": { "operation": {} },
+      "sampleBodyFile": "seed/rpc.token_operation_broadcast.json",
+      "notes": "Broadcast a signed token operation. Returns {operation_id, token_id}."
+    },
+    {
+      "method": "token_operation_status",
+      "params": { "hash": "..." },
+      "sampleBodyFile": "seed/rpc.token_operation_status.json",
+      "notes": "Poll token operation confirmation. Returns status + operation details."
+    },
+    {
+      "method": "auth_challenge",
+      "params": { "address": "wsk1...", "domain": "..." },
+      "sampleBodyFile": "seed/rpc.auth_challenge.json",
+      "notes": "Generate a one-time challenge for wallet ownership proof. Returns {message, nonce}."
+    },
+    {
+      "method": "auth_verify",
+      "params": { "address": "wsk1...", "domain": "...", "nonce": "...", "public_key": "...", "signature": "..." },
+      "sampleBodyFile": "seed/rpc.auth_verify.json",
+      "notes": "Verify a signed auth challenge. Returns {session_token}."
+    },
+    {
+      "method": "mna_quote",
+      "params": { "amount_usdc": "..." },
+      "sampleBodyFile": "seed/rpc.mna_quote.json",
+      "notes": "Get a USDC-to-WSK (or reverse) conversion quote with rate and amounts."
+    },
+    {
+      "method": "mna_swap_prepare",
+      "params": { "unsigned": {} },
+      "sampleBodyFile": "seed/rpc.mna_swap_prepare.json",
+      "notes": "Prepare an MNA reserve swap (MintMna or RedeemMna). Returns signing_bytes."
+    },
+    {
+      "method": "mna_swap_broadcast",
+      "params": { "operation": {} },
+      "sampleBodyFile": "seed/rpc.mna_swap_broadcast.json",
+      "notes": "Broadcast a signed MNA swap. Returns {operation_id}."
+    },
+    {
+      "method": "mna_swap_status",
+      "params": { "hash": "..." },
+      "sampleBodyFile": "seed/rpc.mna_swap_status.json",
+      "notes": "Poll MNA swap confirmation status."
+    },
+    {
+      "method": "sol_mna_quote",
+      "params": { "amount_lamports": "..." },
+      "sampleBodyFile": "seed/rpc.sol_mna_quote.json",
+      "notes": "Oracle quote for SOL-to-WSK conversion via the Solana bridge lane."
+    },
+    {
+      "method": "devnet_faucet",
+      "params": { "address": "wsk1..." },
+      "sampleBodyFile": "seed/rpc.devnet_faucet.json",
+      "notes": "Devnet-only faucet that credits test WSK to the given address."
     }
   ]
 }

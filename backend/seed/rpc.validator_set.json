@@ -1,0 +1,24 @@
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "validators": [
+      {
+        "name": "validator-1",
+        "public_key": "ade71b0a1b49ab8a6557ee8b26cc186392d58d8a6885bdc1b95fdb0f375476cf"
+      },
+      {
+        "name": "validator-2",
+        "public_key": "6b799dfafdf1cffe6afe91c9722dc68a1af23c4aed0a30ac970d632b6db40829"
+      },
+      {
+        "name": "validator-3",
+        "public_key": "e49c0ee690566f00ad30320a899d31ad7e12953688fea4d4ececd963bf52b865"
+      },
+      {
+        "name": "validator-4",
+        "public_key": "b7e56bfd29c813065f8c1e36d8e3b859300dcfd89899b37087d63b7e7499a6ac"
+      }
+    ]
+  }
+}

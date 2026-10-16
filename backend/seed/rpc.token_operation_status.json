@@ -1,0 +1,22 @@
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "status": "confirmed",
+    "operation_id": "c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4",
+    "height": 2045385,
+    "operation": {
+      "version": 1,
+      "chain_id": "intertrain-1",
+      "nonce": 43,
+      "from": "wsk1qyyeyzxrpy47slcqllq3tzldzkp42rw9s5rg99zu",
+      "kind": "Create",
+      "token_id": "4245d7f601dd85de454dbb7e8befa2d361bacf5cb0efea289b23291fa9c064a9",
+      "name": "TestingM",
+      "symbol": "TGM",
+      "decimals": 6,
+      "amount": "100000000000",
+      "fee": "1"
+    }
+  }
+}

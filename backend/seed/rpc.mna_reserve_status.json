@@ -1,0 +1,23 @@
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "backed_fraction": 1,
+    "collateralized": true,
+    "current_reserves_sol_usd": "0",
+    "current_reserves_total_usd": "3600000",
+    "current_reserves_usdc": "3600000",
+    "paused": false,
+    "rate": "1 USDC = 1 WSK",
+    "redeemable_mna": "1400000",
+    "required_reserve_usd": "1400000",
+    "reserve_backed_mna_minted": "1400000",
+    "surplus_usd": "2200000",
+    "total_mna_supply": "1400000",
+    "total_redeemed_mna": "12000000",
+    "total_released_sol_lamports": "0",
+    "total_released_usdc": "0",
+    "total_verified_deposits_usdc": "3600000",
+    "total_verified_sol_lamports": "0"
+  }
+}

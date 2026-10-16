@@ -1,0 +1,13 @@
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "address": "wsk1qyyeyzxrpy47slcqllq3tzldzkp42rw9s5rg99zu",
+    "balance": "500000000",
+    "nonce": 42,
+    "assets": {
+      "ethereum:USDC:mainnet:0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48": "10000000",
+      "4245d7f601dd85de454dbb7e8befa2d361bacf5cb0efea289b23291fa9c064a9": "50000000000"
+    }
+  }
+}

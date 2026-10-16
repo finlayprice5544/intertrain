@@ -1,0 +1,63 @@
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "assets": [
+      {
+        "id": "worldstreet:MNA:native",
+        "symbol": "WSK",
+        "name": "WorldStreet Kash",
+        "display_name": "WorldStreet Kash",
+        "decimals": 6,
+        "enabled": true,
+        "native": true
+      },
+      {
+        "id": "ethereum:USDC:mainnet:0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "symbol": "USDC",
+        "name": "USD Coin",
+        "display_name": "USDC (Ethereum)",
+        "decimals": 6,
+        "enabled": true,
+        "bridge_lane": "ethereum",
+        "token_contract": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
+      },
+      {
+        "id": "arbitrum:USDC:mainnet:0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+        "symbol": "WSK",
+        "name": "WorldStreet Kash (Arbitrum)",
+        "display_name": "WSK via Arbitrum",
+        "decimals": 6,
+        "enabled": false,
+        "bridge_lane": "arbitrum"
+      },
+      {
+        "id": "ethereum:WETH:mainnet:bridge-placeholder",
+        "symbol": "WETH",
+        "name": "Wrapped Ether",
+        "display_name": "WETH",
+        "decimals": 18,
+        "enabled": false,
+        "bridge_lane": "ethereum"
+      },
+      {
+        "id": "solana:WSOL:devnet:bridge-placeholder",
+        "symbol": "WSOL",
+        "name": "Wrapped SOL",
+        "display_name": "wSOL",
+        "decimals": 9,
+        "enabled": false,
+        "bridge_lane": "solana"
+      },
+      {
+        "id": "solana:USDC:devnet:mint-placeholder",
+        "symbol": "USDC",
+        "name": "USD Coin (Solana)",
+        "display_name": "USDC (Solana devnet)",
+        "decimals": 6,
+        "enabled": false,
+        "bridge_lane": "solana"
+      }
+    ]
+  }
+}

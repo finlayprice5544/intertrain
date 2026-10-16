@@ -1,0 +1,11 @@
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "amount_lamports": "100000000",
+    "amount_mna": "14500000",
+    "sol_price_usd": "145.00",
+    "fee_bps": 50,
+    "rate": "1 SOL ≈ 145 WSK"
+  }
+}

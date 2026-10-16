@@ -1,0 +1,24 @@
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "address_format": {
+      "accepted_prefixes": ["wsk", "mna"],
+      "canonical_output": true,
+      "canonical_prefix": "wsk",
+      "codec_version": 1,
+      "state_impact": "none"
+    },
+    "chain_id": "intertrain-1",
+    "finalized_hash": "d530afaec34b2c0ef398c7fe042fb3ff49a8f5e69c1e5f1b634667e3bdff8463",
+    "finalized_height": 2045372,
+    "genesis_hash": "ce70bfb5725c86585a9955acc9ea0e711c7fe344b76cbcdd4256456bbdc6537f",
+    "latest_hash": "cb0e42642c85917fe68bad934767ed3e55a786f7f5b6c549963c3fd54209068b",
+    "latest_height": 2045374,
+    "native_asset": {
+      "decimals": 6,
+      "name": "WorldStreet Kash",
+      "symbol": "WSK"
+    }
+  }
+}

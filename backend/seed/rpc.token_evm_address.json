@@ -1,0 +1,11 @@
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "token_id": "4245d7f601dd85de454dbb7e8befa2d361bacf5cb0efea289b23291fa9c064a9",
+    "evm_address": "0x7F4245d7f601DD85dE454dBb7e8befa2d361BaCF",
+    "symbol": "TGM",
+    "decimals": 6,
+    "image": "https://intertrain.online/icon-256.png"
+  }
+}

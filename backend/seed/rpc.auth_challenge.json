@@ -1,0 +1,8 @@
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "message": "Sign this message to prove you own wsk1qyyeyzxrpy47slcqllq3tzldzkp42rw9s5rg99zu on intertrain.online at 2026-10-16T12:00:00Z nonce:abc123def456",
+    "nonce": "abc123def456"
+  }
+}

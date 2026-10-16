@@ -1,0 +1,76 @@
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "arbitrum_wsk": {
+      "asset_id": "arbitrum:USDC:mainnet:0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+      "bridge_contract": "0x0729F81ACc0948089B0BAcc0685c461F8F54F23B",
+      "chain_id": 42161,
+      "confirmations": 20,
+      "connected": true,
+      "deposit_topic": "0x8399ea2998de3fe00f8878f42216a68a8956c3687b5d9d0412c4c1a6d3b05ccf",
+      "enabled": false,
+      "network": "Arbitrum One",
+      "paused": true,
+      "rate": "1 USDC = 1 WSK",
+      "symbol": "WSK",
+      "token_contract": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831"
+    },
+    "ethereum": {
+      "bridge_contract": "",
+      "confirmations": 12,
+      "connected": false,
+      "deposit_topic_configured": false,
+      "enabled": false,
+      "network": "mainnet",
+      "reason": "set WSC_ETHEREUM_RPC_URL, WSC_ETHEREUM_BRIDGE_CONTRACT, and WSC_ETHEREUM_DEPOSIT_TOPIC to enable the testnet bridge",
+      "rpc_configured": true
+    },
+    "solana": {
+      "bridge_program": "",
+      "commitment": "finalized",
+      "confirmations": 32,
+      "connected": false,
+      "enabled": false,
+      "mode": "disabled",
+      "network": "devnet",
+      "reason": "WSOL is disabled until SOL liquidity is funded",
+      "rpc_configured": false,
+      "spl_usdc_enabled": false,
+      "spl_usdc_mint": "",
+      "spl_usdc_vault_token_account": "",
+      "vault_address": "",
+      "wsol_mint": ""
+    },
+    "solana_usdc": {
+      "asset_id": "solana:USDC:devnet:mint-placeholder",
+      "decimals": 6,
+      "enabled": false,
+      "symbol": "USDC"
+    },
+    "usdc": {
+      "bridge_contract": "0x981fA35883e60Fbe229D449334B3507997af84E1",
+      "confirmations": 12,
+      "deposit_topic_configured": true,
+      "enabled": true,
+      "network": "mainnet",
+      "token_configured": true,
+      "token_contract": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
+    },
+    "usdc_asset": {
+      "asset_id": "ethereum:USDC:mainnet:0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+      "decimals": 6,
+      "symbol": "USDC"
+    },
+    "weth": {
+      "asset_id": "ethereum:WETH:mainnet:bridge-placeholder",
+      "decimals": 18,
+      "symbol": "WETH"
+    },
+    "wsol": {
+      "asset_id": "solana:WSOL:devnet:bridge-placeholder",
+      "decimals": 9,
+      "symbol": "WSOL"
+    }
+  }
+}

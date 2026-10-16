@@ -1,0 +1,11 @@
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "amount_usdc": "10000000",
+    "amount_mna": "10000000",
+    "rate": "1 USDC = 1 WSK",
+    "fee_bps": 0,
+    "direction": "MintMna"
+  }
+}
